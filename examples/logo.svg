@@ -1,14 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
      viewBox="0 0 110 60" style="enable-background:new 0 0 110 60;" xml:space="preserve">
-    <rect width="110" height="60" fill="rgb(59, 85, 96)"></rect>
+
+    <!-- Background with dark futuristic color -->
+    <rect width="110" height="60" rx="10" ry="10" fill="url(#bgGrad)" stroke="rgb(20, 30, 40)" stroke-width="2"></rect>
+
+    <!-- Background Gradient definition -->
+    <defs>
+        <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(10, 20, 30);stop-opacity:1" />
+            <stop offset="100%" style="stop-color:rgb(25, 35, 45);stop-opacity:1" />
+        </linearGradient>
+    </defs>
+
+    <!-- Neon Glow Filter -->
+    <defs>
+        <filter id="neonGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3.5" result="coloredBlur"></feGaussianBlur>
+            <feMerge>
+                <feMergeNode in="coloredBlur"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+
     <g transform="translate(5,5)">
-        <line x1="50" x2="50" y1="35" y2="7.5" stroke-width="1" stroke="white"></line>
-        <line x1="40" x2="60" y1="7.5" y2="7.5" stroke-width="1" stroke="white"></line>
+        <!-- Futuristic glowing lines -->
+        <line x1="50" x2="50" y1="35" y2="7.5" stroke-width="1" stroke="cyan" style="filter:url(#neonGlow);"></line>
+        <line x1="40" x2="60" y1="7.5" y2="7.5" stroke-width="1" stroke="cyan" style="filter:url(#neonGlow);"></line>
 
-        <rect x="0" y="0" width="40" height="15" fill="lightblue" rx="2" ry="2"></rect>
-        <rect x="60" y="0" width="40" height="15" fill="lightpink" rx="2" ry="2"></rect>
-        <rect x="30" y="35" width="40" height="15" fill="lightblue" rx="2" ry="2"></rect>
+        <!-- Neon glowing rectangles -->
+        <rect x="0" y="0" width="40" height="15" fill="url(#rectGrad1)" rx="4" ry="4" style="filter:url(#neonGlow);"></rect>
+        <rect x="60" y="0" width="40" height="15" fill="url(#rectGrad2)" rx="4" ry="4" style="filter:url(#neonGlow);"></rect>
+        <rect x="30" y="35" width="40" height="15" fill="url(#rectGrad3)" rx="4" ry="4" style="filter:url(#neonGlow);"></rect>
+
+        <!-- Rectangle Gradients -->
+        <defs>
+            <linearGradient id="rectGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:rgb(0, 170, 255);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(0, 90, 170);stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="rectGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:rgb(255, 0, 128);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(170, 0, 85);stop-opacity:1" />
+            </linearGradient>
+            <linearGradient id="rectGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:rgb(0, 255, 170);stop-opacity:1" />
+                <stop offset="100%" style="stop-color:rgb(0, 170, 90);stop-opacity:1" />
+            </linearGradient>
+        </defs>
+
+        <!-- Animating the center vertical line for a pulse effect -->
+        <animate attributeName="stroke-opacity" from="1" to="0.2" dur="2s" repeatCount="indefinite"/>
     </g>
-
 </svg>
